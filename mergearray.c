@@ -1,31 +1,39 @@
 #include<stdio.h>
 int main()
 {
-    int  array1[5],array2[2],array3[7];
-    int i,j=0;
+    int n1,n2;
+
+    printf("Enter your Arry1 size:-");
+    scanf("%d",&n1);
+    printf("Enter your Arry2 size:-");
+    scanf("%d",&n2);
+
+    int arr1[n1], arr2[n2];
+
     printf("enter the array:");
-    for(i=0;i<5;i++)
-    {
-        scanf("%d",&array1[i]);
+    for (int i = 0; i < n1; i++)
+    {  
+        scanf("%d", &arr1[i]);
     }
+
     printf("enter the array2:");
-    for(i=0;i<2;i++)
-    {
-        scanf("%d",&array2[i]);
+    for (int i = 0; i < n2; i++)
+    {   
+        scanf("%d", &arr2[i]);
     }
-    for(i = 0;i<5;i++)
+
+    int arr3[n1+n2];
+    
+    for (int i = 0; i < n1+n2; i++)
     {
-        array3[j] = array1[i];
-        j++;
+       
+       arr3[i]=i<n1?arr1[i]:arr2[i-n1];
     }
-    for(i=0;i<2;i++)
+    
+    for (int i = 0; i < n1+n2; i++)
     {
-        array3[j] =array2[i];
-        j++;
+        printf(" %d",arr3[i]);
     }
-    printf("merge array:");
-    for(i=0;i<7;i++)
-    {
-        printf("%d \t",array3[i]);
-    }
+    
 }
+
