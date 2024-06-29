@@ -1,18 +1,26 @@
 #include <iostream>
 using namespace std;
 
-class stack {
-    int a[5]; // Array to store stack elements
-    int top;  // Index of the top element (initialized to -1)
-
-public:
-    stack() { top = -1; } // Constructor to initialize top to -1
-
-    void push() {
+class stack 
+{
+    int a[5]; 
+    int top;  
+    
+    public:
+    stack() 
+    { 
+        top = -1; 
+    } 
+    
+    void push() 
+    {
         int data;
-        if (top == 4) {
+        if (top == 4) 
+        {
             cout << "\nStack is full\n";
-        } else {
+        } 
+        else 
+        {
             cout << "Enter element: ";
             cin >> data;
             top++;
@@ -20,32 +28,43 @@ public:
         }
     }
 
-    void pop() {
-        if (top == -1) {
+    void pop() 
+    {
+        if (top == -1) 
+        {
             cout << "Stack is empty\n";
-        } else {
+        } 
+        else 
+        {
             cout << "Popped element: " << a[top] << "\n";
             top--;
         }
     }
 
-    void display() {
-        if (top >= 0) {
+    void display() 
+    {
+        if (top >= 0) 
+        {
             cout << "Elements:\n";
-            for (int i = top; i >= 0; i--) {
+            for (int i = top; i >= 0; i--) 
+            {
                 cout << a[i] << "\n";
             }
-        } else {
+        } 
+        else 
+        {
             cout << "Stack is empty\n";
         }
     }
 };
 
-int main() {
+int main() 
+{
     stack s;
     int choice;
 
-    while (true) {
+    while (true) 
+    {
         cout << "\n1. Push\n";
         cout << "2. Pop\n";
         cout << "3. Display\n";
@@ -53,7 +72,8 @@ int main() {
         cout << "Enter your choice: ";
         cin >> choice;
 
-        switch (choice) {
+        switch (choice) 
+        {
             case 1:
                 s.push();
                 break;
