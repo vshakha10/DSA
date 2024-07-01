@@ -53,4 +53,23 @@
         }
 }
 
+int main() 
+{
+    int size;
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+    if (size <= 0 || size > 50) 
+    {
+        printf("Invalid size. Size should be between 1 and 50.\n");
+        return 1;
+    }
+    int arr[50]; 
+    randomize(arr, size);
+    display(arr, size);
+    index(arr, size);
+    check(arr, size);
+    return 0;
+}
+
+
 
