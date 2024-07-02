@@ -34,11 +34,11 @@
         }    
     } 
 
-    int search(int arr[],int high,int low,int mid,int find_element) 
+    int search(int arr[],int high,int low,int find_element) 
     { 
         printf("\nenter the element which you want to find : "); 
         scanf("%d",&find_element); 
- 
+        int mid;
         while (low <= high) 
         { 
             mid = (low + high) / 2; 
@@ -76,7 +76,7 @@ int main()
     sorted(arr,size); 
     display(arr,size); 
     
-    int index = search(arr,high,low,mid,find_element); 
+    int index = search(arr,high,low,find_element); 
     if (index != -1) 
     { 
        printf("Element found at index : %d",index); 
