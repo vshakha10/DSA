@@ -25,7 +25,7 @@
             for (int j = i; j < size; j++) 
             { 
                 if (arr[i] > arr[j]) 
-                { 
+                {  
                     a = arr[i]; 
                     arr[i] = arr[j]; 
                     arr[j] = a; 
