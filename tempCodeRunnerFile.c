@@ -1,2 +1,2 @@
 
-    int search(int arr[],int high,int low,int find_element) 
+        // printf("a:%d,b:%d,c:%d",a,b,c);
