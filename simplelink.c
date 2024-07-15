@@ -4,31 +4,30 @@
 struct node
 {
     int data;
-    struct node *ptr;
+    struct node *next;
 };
+
 struct node *head = NULL;
 
 void insert_end(int val)
 {
-   
     struct node *ptr = head;
     struct node *temp = malloc(sizeof(struct node) );
 
     temp -> data = val;
-    temp -> ptr = NULL;
+    temp -> next = NULL;
 
     if(head == NULL)
     {
         head = temp;
         return;
     }
-    while(ptr -> ptr != NULL)
+    while(ptr -> next != NULL)
     {
-        ptr = ptr -> ptr;
+        ptr = ptr -> next;
     }
-    ptr -> ptr = temp;
+    ptr -> next = temp;
     return;
-
 } 
 
 void  insert_first(int val)
@@ -37,7 +36,7 @@ void  insert_first(int val)
     struct node *temp = malloc(sizeof(struct node));
 
     temp -> data = val;
-    temp ->  ptr = head;
+    temp ->  next = head;
 
     head = temp;
 }
@@ -53,27 +52,25 @@ void insert_mid(int pos,int num)
     while(ptr -> data != pos)
     {
         p = ptr;
-        ptr = ptr->ptr;
+        ptr = ptr->next;
     }
-    p -> ptr = temp;
-    temp -> ptr = ptr;
+    p -> next = temp;
+    temp -> next = ptr;
  }
- void delete_mid(int pos,int num)
+ void delete_mid(int pos)
  {
     struct node *ptr = head;
     struct node *p;
-    struct node *temp = malloc(sizeof(struct node));
-
-    temp -> data = num;
 
     while(ptr -> data != pos)
     {
         p=ptr;
-        ptr = ptr -> ptr;
+        ptr = ptr -> next;
     }
-    p -> ptr = ptr ->ptr;
+    p -> next = ptr -> next;
     free(ptr);
  }
+
 void display()
 {
     struct node *ptr = head;
@@ -87,10 +84,11 @@ void display()
     while(ptr != NULL)
     {
         printf("%d ", ptr->data);
-        ptr = ptr->ptr;
+        ptr = ptr -> next;
     }
     printf("\n");
 }
+
 void delete_end()
 {
     struct node *ptr = head;
@@ -101,27 +99,26 @@ void delete_end()
         printf("list is empty.\n");
         return;
     }
-    if(head -> ptr == NULL)
+    if(head -> next == NULL)
     {
-        free(head);
+        //free(head);
         head = NULL;
         return;
     }
-    while (ptr -> ptr != NULL)
+    while (ptr -> next != NULL)
     {
         pre = ptr;
-        ptr = ptr -> ptr;
+        ptr = ptr -> next;
     }
     free(ptr);
-    pre -> ptr = NULL;
+    pre -> next = NULL;
 }
-
 
 void  delete_first()
 {
     struct  node  *ptr = head;
 
-    head= ptr -> ptr;
+    head= ptr -> next;
     free(ptr);
 }
 
@@ -180,21 +177,14 @@ int main()
             break;
 
         case 7 :
-            printf("enter position to  insert  element :");
+            printf("enter delete0000 element :");
             scanf("%d",&pos);
             display();
-            printf("delete element :");
-            scanf("%d",&num);
-            delete_mid(pos ,num);
+            delete_mid(pos);
             display();
             break;
 
         case 8 :
-            exit(0);
-            break;
-
-
-        case 9 :
             exit(0);
             break;
 
