@@ -20,7 +20,7 @@ void Display()
        cout<<copyHead->data<<" ";
 
 }
-void Push_Fast(int Data)
+void insert_first(int Data)
 {
     struct Node *link = (struct Node*) malloc(sizeof(struct Node));
     
@@ -37,7 +37,7 @@ void Push_Fast(int Data)
     link->Next=Head;
     Head=link;
 }
-void Push_Back(int Data)
+void insert_end(int Data)
 {
     struct Node *link = (struct Node*) malloc(sizeof(struct Node));
     struct Node *copyHead=Head;
@@ -62,7 +62,7 @@ void Push_Back(int Data)
         link->Next=NULL;
         copyHead->Next=link;
 }
-void Push(int Data, int Eliment)
+void insert(int Data, int Eliment)
 {
     struct Node *link = (struct Node*) malloc(sizeof(struct Node));
     struct Node *copyHead=Head;
@@ -78,7 +78,7 @@ void Push(int Data, int Eliment)
         link->Next=copyHead->Next;
         copyHead->Next=link;
 }
-void Pop_Fast()
+void delete_first()
 {
     if(Head->Next==NULL)
     {
@@ -88,7 +88,7 @@ void Pop_Fast()
     Head=Head->Next;
     Head->Pre=NULL;
 }
-void Pop_Back()
+void delete_end()
 {
     struct Node *copyHead=Head;
     struct Node *copy1Head;
@@ -106,7 +106,7 @@ void Pop_Back()
         copy1Head->Next=NULL;
 
 }
-void Pop(int Eliment)
+void delet(int Eliment)
 {
     struct Node *copyHead=Head;
     struct Node *copy1Head=Head;
@@ -133,24 +133,24 @@ void Pop(int Eliment)
 }
 int main()
 {
-    // Push_Fast(10);
-    // Push_Fast(20);
-    // Push_Fast(30);
-    // Push_Fast(40);
-    Push_Back(10);
-    Push_Back(20);
-    Push_Back(30);
-    Push_Back(40);
-    Push_Back(50);
-    //Push(1000,20);
-    // Pop_Fast();
-    // Pop_Fast();
-    // Pop_Fast();
-    // Pop_Back();
-    // Pop_Back();
-    // Pop_Back();
- //  Pop(10);
-   Pop(50);   
+    // insert_first(10);
+    //  insert_first(20);
+    //  insert_first(30);
+    // insert_first(40);
+    insert_end(10);
+     insert_end(20);
+     insert_end(30);
+     insert_end(40);
+     insert_end(50);
+    //insert(1000,20);
+    // delete_first();
+    // delete_first();
+    //  delete_first();
+    // delete_end();
+    // delete_end();
+    // delete_end();
+ //  delet(10);
+   delet(50);   
 
     Display();
 }
