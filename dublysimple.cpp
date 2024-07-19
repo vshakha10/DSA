@@ -133,24 +133,24 @@ void delet(int Eliment)
 }
 int main()
 {
-    // insert_first(10);
-    //  insert_first(20);
-    //  insert_first(30);
-    // insert_first(40);
+    //nsert_first(10);
+    //insert_first(20);
+    //insert_first(30);
+    //insert_first(5);
     insert_end(10);
-     insert_end(20);
-     insert_end(30);
-     insert_end(40);
-     insert_end(50);
-    //insert(1000,20);
-    // delete_first();
-    // delete_first();
-    //  delete_first();
-    // delete_end();
-    // delete_end();
-    // delete_end();
- //  delet(10);
-   delet(50);   
+    insert_end(20);
+    insert_end(30);
+    insert_end(40);
+    insert_end(50);
+    //insert(25,20);
+    //delete_first();
+    //delete_first();
+    //delete_first();
+    //delete_end();
+    //delete_end();
+    //delete_end();
+    //delet(10);
+    //delet(50);   
 
     Display();
 }

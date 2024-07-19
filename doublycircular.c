@@ -47,24 +47,24 @@ void insert_first(int val)
         temp->pre = head;
         return;
     }
-    else
-    {
-    // while (ptr->next != head)
-    // {
-    //     ptr = ptr->next;
-    // }
-    //ptr->next = temp;
-    temp->next = head;
-    temp->pre = head->pre;
-    head=temp;
    
+    while (ptr->next != head)
+    {
+        ptr = ptr->next;
     }
+    ptr->next = temp;
+    ptr->pre=ptr;
+    temp->next = head;
+    head->pre=temp;
+    head=temp;
     return;
-}
+    }
+  
+
 void delete_end()
 {
     struct node *ptr = head;
-    struct node *pre;
+    struct node *prev;
     if (head == NULL)
     {
         printf("List Is Allready Empty.....\n");
@@ -79,14 +79,15 @@ void delete_end()
     {
     while (ptr->next != head)
     {
-        pre = ptr;
+        prev = ptr;
         ptr = ptr->next;
     }
-    pre->next = head;
+    prev->next = head;
     free(ptr);
 }
     return;
 }
+
 void delete_first()
 {
     struct node *ptr = head;
@@ -95,23 +96,16 @@ void delete_first()
     {
         printf("List Is Already Empty....\n");
     }
-    else if (ptr->next == head)
-    {
-        head = NULL;
-        free(ptr);
-    }
-    else
-    {
     while (ptr->next != head)
-   
+    {
         ptr = ptr->next;
-    
-    ptr->next = head->next;
-    head->next-> pre=ptr;
+    }
+    ptr->next = temp->next;
+    head = temp->next;
     free(temp);
     return;
-    }
 }
+
 
 void insert_mid(int val, int pos)
 {
@@ -166,23 +160,69 @@ int display()
 
 int main()
 {
-    // insertEnd(10);
-    // insertEnd(20);
-    // insertEnd(30);
-    // display();
-    // deleteEnd();
-    // display();
 
-    insert_first(40);
-    insert_first(50);
-    display();
-    // deleteFirst();
-    // display();
+    int ch, i, j, x, y;
 
-//     insertMid(60, 20);
-//     insertMid(70, 10);
-//     display();
-//     midDelete(20);
-//     midDelete(10);
-//     display();
+    do
+    {
+        printf("\nPress 1 for Insert End.\n");
+        printf("Press 2 for Delete End.\n");
+        printf("Press 3 for Insert First.\n");
+        printf("Press 4 for Delete First.\n");
+        printf("Press 5 for Mid Insert.\n");
+        printf("Press 6 for Mid Delete.\n");
+        printf("Press 7 For Display.\n");
+        printf("Press 0 Exit.\n");
+
+        printf("Enter Your Choice :");
+        scanf("%d", &ch);
+
+        switch (ch)
+        {
+        case 1:
+            printf("Enter Value For Insert End : ");
+            scanf("%d", &i);
+            insert_end(i);
+            break;
+
+        case 2:
+            delete_end();
+            break;
+
+        case 3:
+            printf("Enter Value For Insert First : ");
+            scanf("%d", &j);
+            insert_first(j);
+            break;
+
+        case 4:
+            delete_first();
+            break;
+
+        case 5:
+            printf("Enter Value For Mid Add : ");
+            scanf("%d", &x);
+            printf("Enter Position For Add : ");
+            scanf("%d", &y);
+            insert_mid(x, y);
+            break;
+
+        case 6:
+            printf("Enter Position For Delete : ");
+            scanf("%d", &x);
+            mid_delete(x);
+            break;
+
+        case 7:
+            display();
+            break;
+
+        case 0:
+            break;
+
+        default:
+            printf("Please Enter Valid Choice......");
+            break;
+        }
+    } while (ch != 0);
 }
